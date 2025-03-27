@@ -1,0 +1,262 @@
+.highlight {
+    background-color: rgb(34, 35, 37);
+    
+    padding: 1em;
+    border-radius: _size(border-radius);
+}
+.highlight p {
+    margin: 0;
+
+color: white;
+  font-size: 1em;
+  font-weight: 300;
+  text-align: center;
+  font-style: italic;
+}
+.outline {
+    -webkit-text-stroke: 1px rgb(30, 136, 229);
+color: transparent;
+}
+
+/* PROFILE TABS */
+.profile-tabs {
+	max-width: 100%;
+	margin: 0 auto;
+	background-color: #fff;
+	/*border-radius: 10px;*/
+	overflow: hidden;
+	/*box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
+}
+
+.tabs {
+	display: flex;
+	justify-content: space-around;
+	background-color: #fff;
+	padding: 10px 0 0 0;
+	border-bottom: 1px solid #bbb;
+}
+
+
+.tab-button {
+	border: none;
+	background: none;
+	padding: 10px 20px;
+	cursor: pointer;
+	font-size: 1em;
+	color: #333;
+	position: relative;
+	transition: color 0.3s;
+}
+/* The tab button size code is replaced with the same rule in _button.scss */
+
+
+.tab-button.active {
+	color: #333;
+}
+
+.tab-button.active::after {
+	content: '';
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background-color: #333333; /* was the Purple underline */
+}
+
+.tab-content {
+	padding: 20px 0;
+}
+
+.tab-pane {
+	display: none;
+}
+
+.tab-pane.active {
+	display: block;
+}
+
+.tab-pane h3 {
+	color: #333333;
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 1em;
+    font-weight: 600;
+}
+
+
+
+
+.tab-pane p {
+	color: #333;
+	line-height: 1.6;
+	margin-top: 0;
+	font-size: 0.875em;
+}
+
+/* Updated layout for text and image side by side */
+.tab-content-layout {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+	align-items: flex-start; /* Align items to the top */
+}
+
+.tab-text {
+	flex: 1;
+}
+
+.tab-image-container {
+	flex: 0 0 auto; /* Don't grow or shrink, just use the image's natural size */
+	max-width: 200px; /* Match the placeholder image width or adjust to your image */
+}
+
+.tab-image {
+	max-width: 100%;
+	height: auto;
+	aspect-ratio: 1 / 1; /* Enforce 1:1 aspect ratio */
+	object-fit: cover; /* Ensure the image maintains its aspect ratio and covers the space without distortion */
+	border-radius: 4px;
+}
+
+/* Tablet and Mobile Responsive Design */
+@media (max-width: 1024px) {
+	.profile-tabs {
+		max-width: 500px;
+	}
+
+	.tabs {
+		flex-direction: row;
+		justify-content: space-around;
+	}
+
+	.tab-button {
+		padding: 10px 15px;
+		font-size: 0.9em;
+	}
+
+	.tab-content-layout {
+		flex-direction: column; /* Stack text and image on tablet */
+	}
+
+	.tab-image-container {
+		max-width: 100%; /* Allow full width on tablet */
+		margin: 0 auto; /* Center the image when stacked */
+	}
+}
+
+@media (max-width: 768px) {
+	.profile-tabs {
+		max-width: 90%;
+		margin: 10px;
+	}
+
+	.tabs {
+		flex-direction: row;
+		justify-content: space-around;
+	}
+
+	.tab-button {
+		padding: 8px 10px;
+		font-size: 0.8em;
+        border: none !important;
+        background: none !important;
+	}
+
+	.tab-content {
+		padding: 15px;
+	}
+
+	.tab-content-layout {
+		flex-direction: column; /* Stack text and image on mobile */
+	}
+
+	.tab-image-container {
+		max-width: 100%; /* Allow full width on mobile */
+		margin: 0 auto; /* Center the image when stacked */
+	}
+}
+
+
+
+/* KPI */
+
+.kpi-section {
+    background-color: #1a2330;
+    color: #fff;
+    padding: 1em 0 2em 0 !important;
+    text-align: center;
+    border-radius: 16px;
+    max-width: 100%;
+    margin: 20px auto;
+  }
+  
+  .kpi-section h2 {
+    color: #00c4cc;
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .kpi-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    
+  }
+  
+  .kpi-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 210px; /* Fixed width for each kpi-item */
+  }
+  
+  .kpi-item i {
+    font-size: 2.5em;
+    color: #00c4cc;
+    margin-bottom: 10px;
+  }
+  
+  .kpi-number {
+    font-size: 2em;
+    color: #00c4cc;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .kpi-label {
+    font-size: 1em;
+    color: #d3d9e5;
+    text-transform: uppercase;
+    max-width: 100%; /* Ensure it doesn't exceed the kpi-item width */
+    word-wrap: break-word; /* Allow long words to break and wrap */
+    line-height: 1.2; /* Adjust line height for better readability */
+    display: block; /* Ensure it behaves as a block element */
+  }
+  
+  /* Mobile Layout (stack vertically) */
+  @media (max-width: 768px) {
+    .kpi-container {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .kpi-item {
+      width: 100%; /* On mobile, allow full width */
+      max-width: 400px; /* Optional: Cap the width on mobile for better readability */
+      text-align: center; /* Center align the content */
+      margin-bottom: 30px;
+    }
+    .kpi-section h2 {
+      font-size: 2em;
+    }
+    .kpi-number {
+      font-size: 1.5em;
+    }
+  }
+  /* Ensure horizontal layout on larger screens */
+  @media (min-width: 769px) {
+    .kpi-container {
+      flex-direction: row;
+    }
+  }
